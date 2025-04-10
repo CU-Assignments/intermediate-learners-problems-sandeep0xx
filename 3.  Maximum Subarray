@@ -1,0 +1,10 @@
+class Solution:
+    def maxSubArray(self, nums: list[int]) -> int:
+        max_sum = float('-inf')  # Store the maximum subarray sum
+        current_sum = 0  # Store the current subarray sum
+
+        for num in nums:
+            current_sum = max(num, current_sum + num)  # Extend or restart subarray
+            max_sum = max(max_sum, current_sum)  # Update max sum
+
+        return max_sum
